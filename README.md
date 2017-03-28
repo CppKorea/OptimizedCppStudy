@@ -18,15 +18,25 @@ TBA
 
 - Optimized C++
 
+![Textbook](https://github.com/CppKorea/OptimizedCppStudy/blob/master/Textbook.jpg)
+
 ## 참고 교재
 
 - Effective C++
 
+![ReferenceBook1](https://github.com/CppKorea/OptimizedCppStudy/blob/master/ReferenceBook1.jpg)
+
 - More Effective C++
+
+![ReferenceBook2](https://github.com/CppKorea/OptimizedCppStudy/blob/master/ReferenceBook2.jpg)
 
 - Effective STL
 
+![ReferenceBook3](https://github.com/CppKorea/OptimizedCppStudy/blob/master/ReferenceBook3.jpg)
+
 - Effective Modern C++
+
+![ReferenceBook4](https://github.com/CppKorea/OptimizedCppStudy/blob/master/ReferenceBook4.jpg)
 
 ## 일정
 
