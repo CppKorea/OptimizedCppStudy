@@ -41,19 +41,19 @@ TBA
 ## 일정
 
 - 4월 1일 : 킥오프 미팅
-- 4월 8일 : 스터디 1회차
-- 4월 22일 : 스터디 2회차
-- 4월 29일 : 스터디 3회차
-- 5월 13일 : 스터디 4회차
-- 5월 20일 : 스터디 5회차
-- 5월 27일 : 스터디 6회차
-- 6월 10일 : 스터디 7회차
-- 6월 17일 : 스터디 8회차
-- 6월 24일 : 스터디 9회차
-- 7월 1일 : 스터디 10회차
-- 7월 15일 : 스터디 11회차
-- 7월 22일 : 스터디 12회차
-- 7월 29일 : 스터디 13회차
+- 4월 8일 : 스터디 1회차 (An Overview of Optimization)
+- 4월 22일 : 스터디 2회차 (Computer Behavior Affecting Optimization)
+- 4월 29일 : 스터디 3회차 (Measure Performance)
+- 5월 13일 : 스터디 4회차 (Optimize String Use: A Case Study)
+- 5월 20일 : 스터디 5회차 (Optimize Algorithms)
+- 5월 27일 : 스터디 6회차 (Optimize Dynamically Allocated Variables)
+- 6월 10일 : 스터디 7회차 (Optimize Hot Statements)
+- 6월 17일 : 스터디 8회차 (Use Better Libraries)
+- 6월 24일 : 스터디 9회차 (Optimize Searching and Sorting)
+- 7월 1일 : 스터디 10회차 (Optimize Data Structures)
+- 7월 15일 : 스터디 11회차 (Optimize I/O)
+- 7월 22일 : 스터디 12회차 (Optimize Concurrency)
+- 7월 29일 : 스터디 13회차 (Optimize Memory Management)
 
 ## 비용
 
