@@ -40,8 +40,7 @@ TBA
 
 ## 일정
 
-- 4월 1일 : 킥오프 미팅
-- 4월 8일 : 스터디 1회차 (An Overview of Optimization)
+- 4월 8일 : 킥오프 미팅 & 스터디 1회차 (An Overview of Optimization)
 - 4월 22일 : 스터디 2회차 (Computer Behavior Affecting Optimization)
 - 4월 29일 : 스터디 3회차 (Measure Performance)
 - 5월 13일 : 스터디 4회차 (Optimize String Use: A Case Study)
