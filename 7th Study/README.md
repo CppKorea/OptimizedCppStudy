@@ -338,9 +338,13 @@ void main_loop(Event evt) {
 Remove Code from Functions
 --------------------------
 
+[Statements.pptx](Statements.pptx)
+
 
 Optimize Expressions
 --------------------
+
+[Statements.pptx](Statements.pptx)
 
 
 Optimize Control Flow Idioms
