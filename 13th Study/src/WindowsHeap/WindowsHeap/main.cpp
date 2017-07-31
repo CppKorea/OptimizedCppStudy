@@ -1,5 +1,5 @@
 #include <Windows.h>
-#include <iostream>
+#include <cstdio>
 
 constexpr int KB = 1024;
 constexpr int MB = 1024 * KB;
@@ -7,7 +7,7 @@ constexpr int MB = 1024 * KB;
 void wait( )
 {
 	int input;
-	std::cin >> input;
+	std::getchar( );
 }
 
 int main( )
