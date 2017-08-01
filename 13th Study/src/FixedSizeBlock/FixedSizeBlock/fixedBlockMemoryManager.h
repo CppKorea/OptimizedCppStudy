@@ -77,6 +77,7 @@ inline size_t fixed_block_memory_manager<Arena>::capacity( ) const
 template<typename Arena>
 inline void fixed_block_memory_manager<Arena>::clear( )
 {
+	free_ptr_ = nullptr;
 	arena_.clear( );
 }
 
@@ -97,7 +98,7 @@ inline void fixed_block_memory_manager<Arena>::deallocate( void* p )
 template<typename Arena>
 inline bool fixed_block_memory_manager<Arena>::empty( ) const
 {
-	return arena_.empty( );
+	return free_ptr_ == nullptr;
 }
 
 template<typename Arena>

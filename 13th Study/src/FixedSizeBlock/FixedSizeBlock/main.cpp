@@ -1,10 +1,11 @@
 #include "fixedBlockMemoryManager.h"
 
-#include <iostream>
-#include <vector>
 #include <chrono>
+#include <iostream>
+#include <random>
+#include <vector>
 
-constexpr int testCount = 1000;
+constexpr int testCount = 1'000'000;
 
 class MemMgrTester
 {
@@ -25,7 +26,7 @@ public:
 	static fixed_block_memory_manager<fixed_arena_controller> mgr_;
 };
 
-char arena[sizeof(MemMgrTester) * testCount];
+char arena[sizeof( MemMgrTester ) * testCount] = {};
 fixed_block_memory_manager<fixed_arena_controller> MemMgrTester::mgr_( arena );
 
 class SomeClass
@@ -35,44 +36,113 @@ public:
 	SomeClass( int c ) : contents_( c ) {}
 };
 
+using namespace std::chrono;
+
 int main( )
 {
 	MemMgrTester* fixedBlock[testCount];
 	SomeClass* crtHeap[testCount];
 
-	std::chrono::time_point<std::chrono::steady_clock> begin = std::chrono::steady_clock::now();
-
-	for ( int i = 0; i < testCount; ++i )
+	std::cout << "> Test Case One" << std::endl;
+	std::cout << "Fixed Block Memomry Manager : ";
 	{
-		fixedBlock[i] = new MemMgrTester( i );
+		auto begin = steady_clock::now( );
+
+		for ( int i = 0; i < testCount; ++i )
+		{
+			fixedBlock[i] = new MemMgrTester( i );
+		}
+
+		auto end = steady_clock::now( );
+		auto elapsedTime = duration_cast<milliseconds>( end - begin );
+
+		std::cout << elapsedTime.count( ) << "ms" << std::endl;
+
+		for ( int i = 0; i < testCount; ++i )
+		{
+			delete fixedBlock[i];
+		}
+	}
+
+	std::cout << "CRT Heap Manager : ";
+	{
+		auto begin = steady_clock::now( );
+
+		for ( int i = 0; i < testCount; ++i )
+		{
+			crtHeap[i] = new SomeClass( i );
+		}
+
+		auto end = steady_clock::now( );
+		auto elapsedTime = duration_cast<milliseconds>( end - begin );
+
+		std::cout << elapsedTime.count( ) << "ms" << std::endl;
+
+		for ( int i = 0; i < testCount; ++i )
+		{
+			delete crtHeap[i];
+		}
 	}
 
 	for ( int i = 0; i < testCount; ++i )
 	{
-		delete fixedBlock[i];
+		fixedBlock[i] = nullptr;
+		crtHeap[i] = nullptr;
 	}
 
-	std::chrono::time_point<std::chrono::steady_clock> end = std::chrono::steady_clock::now( );
+	std::random_device rd;
+	std::mt19937 mt;
+	mt.seed( rd( ) );
 
-	std::chrono::microseconds elapsedTime = std::chrono::duration_cast<std::chrono::microseconds>( end - begin );
+	std::uniform_int_distribution<> distribution( 0, 99 );
 
-	std::cout << elapsedTime.count() << std::endl;
-
-	begin = std::chrono::steady_clock::now( );
-
-	for ( int i = 0; i < testCount; ++i )
+	std::cout << std::endl;
+	std::cout << "> Test Case Two" << std::endl;
+	std::cout << "Fixed Block Memomry Manager : ";
 	{
-		crtHeap[i] = new SomeClass( i );
+		auto begin = steady_clock::now( );
+
+		for ( int i = 0, j = 0; i < testCount; ++i )
+		{
+			j = distribution( mt );
+			if ( fixedBlock[j] )
+			{
+				delete fixedBlock[j];
+				fixedBlock[j] = nullptr;
+			}
+			else
+			{
+				fixedBlock[j] = new MemMgrTester( j );
+			}
+		}
+
+		auto end = steady_clock::now( );
+		auto elapsedTime = duration_cast<milliseconds>( end - begin );
+
+		std::cout << elapsedTime.count( ) << "ms" << std::endl;
 	}
 
-	for ( int i = 0; i < testCount; ++i )
+	std::cout << "CRT Heap Manager : ";
 	{
-		delete crtHeap[i];
+		auto begin = steady_clock::now( );
+
+		for ( int i = 0, j = 0; i < testCount; ++i )
+		{
+			j = distribution( mt );
+			if ( crtHeap[j] )
+			{
+				delete crtHeap[j];
+				crtHeap[j] = nullptr;
+			}
+			else
+			{
+				crtHeap[j] = new SomeClass( j );
+			}
+		}
+
+		auto end = steady_clock::now( );
+		auto elapsedTime = duration_cast<milliseconds>( end - begin );
+
+		std::cout << elapsedTime.count( ) << "ms" << std::endl;
 	}
-
-	end = std::chrono::steady_clock::now( );
-
-	elapsedTime = std::chrono::duration_cast<std::chrono::microseconds>( end - begin );
-
-	std::cout << elapsedTime.count( ) << std::endl;
 }
