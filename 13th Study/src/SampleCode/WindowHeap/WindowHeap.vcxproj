@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{EB4368A2-D3C8-4677-B424-3F5E6F52405E}</ProjectGuid>
+    <ProjectGuid>{406760F9-72A2-4417-94FE-DF80B0FD1864}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>WindowsHeap</RootNamespace>
+    <RootNamespace>WindowHeap</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

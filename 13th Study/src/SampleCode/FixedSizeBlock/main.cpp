@@ -1,3 +1,8 @@
+/*
+주의 : 이 소스 코드는 기본 스택 크기를 초과한 배열을 할당하므로 스택 크기 옵션을 변경할 필요가 있음.
+기본 설정으로 10 MB를 스택으로 예약하도록 변경하였음.
+*/
+
 #include "fixedBlockMemoryManager.h"
 
 #include <chrono>
