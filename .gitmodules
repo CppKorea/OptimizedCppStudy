@@ -1,0 +1,3 @@
+[submodule "13th Study/src/jemalloc-win32"]
+	path = 13th Study/src/jemalloc-win32
+	url = https://github.com/shines77/jemalloc-win32
